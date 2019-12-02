@@ -22,5 +22,10 @@
 }
 
 #header {
-  
+
+}
+
+#footer {
+  background: black none repeat scroll 0% 0%;
+  color :white;
 }
