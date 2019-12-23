@@ -14,6 +14,6 @@ This was my first foray into working with React. Users can type names into the i
 - Polishing up the visuals
 - Drying out the code
 
-Thanks to Prime Digital Academy for assisting me with learning new things
+Thanks to Prime Digital Academy for assisting me with learning new things.
 
 If you have questions or concerns, email me at awren.nuit@gmail.com
