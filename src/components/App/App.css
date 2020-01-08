@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
 .App {
   text-align: center;
 }
@@ -22,10 +36,17 @@
 }
 
 #header {
-
+  background: black none repeat scroll 0% 0%;
+  color :white;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 #footer {
   background: black none repeat scroll 0% 0%;
   color :white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
 }

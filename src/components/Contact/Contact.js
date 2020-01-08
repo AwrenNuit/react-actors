@@ -1,47 +1,54 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Contact extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            fname: '',
-            lname: '',
-            impression: ''
-        };
-    
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onButtonClick = this.onButtonClick.bind(this);
-      }  
-        
-    onInputChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        this.setState({[name]: value});
+class Contact extends Component{
+
+    state = {
+        firstName: '',
+        lastName: '',
+        impression: ''
     }
 
-    onButtonClick(event){
-        alert(`Thank you for joining, ${this.state.fname}!`);
+    handleSubmit = (event) => {
         event.preventDefault();
-
-        this.setState({
-            fname: '',
-            lname: '',
-            impression: ''
-        })
+        alert(`Thank you for joining, ${this.state.firstName}!`);
     }
-
+    
+    handleChange(event, propName) {
+        this.setState({[propName]: event.target.value});
+    }
+   
     render(){
         return(
             <>
-                <form onSubmit={this.onButtonClick}>
+                <form onSubmit={this.handleSubmit}>
                     <h2 id="contact">Contact</h2>
-                    <input onChange={this.onInputChange} className="contact-input" type="text" name="fname" value={this.state.fname} placeholder="First Name" />
-                    <input onChange={this.onInputChange} className="contact-input" type="text" name="lname" value={this.state.lname} placeholder="Last Name" />
-                    <input onChange={this.onInputChange} className="contact-input" type="text" name="impression" value={this.state.impression} placeholder="Best Impression" />
-                    <input type="submit" value="Submit" id="submit-btn" />
-                    {/* unsure how to make input values append to p tag only on last input text */}
-                    <p>{`${this.state.fname} ${this.state.lname} ${this.state.impression}`}</p>
+                    <input onChange={(event)=>this.handleChange(event, 'firstName')} 
+                        className="contact-input" 
+                        type="text" 
+                        name="firstName" 
+                        value={this.state.firstName} 
+                        placeholder="First Name" 
+                    />
+
+
+                    <input onChange={(event)=>this.handleChange(event, 'lastName')} 
+                        className="contact-input" 
+                        type="text" 
+                        name="lastName" 
+                        value={this.state.lastName} 
+                        placeholder="Last Name" 
+                    />
+
+                    <input onChange={(event)=>this.handleChange(event, 'impression')} 
+                        className="contact-input" 
+                        type="text" 
+                        name="impression" 
+                        value={this.state.impression} 
+                        placeholder="Best Impression" 
+                    />
+
+                    <button type="submit">Submit</button>
+                    <p>{this.state.firstName} {this.state.lastName} does an impression of {this.state.impression}</p>
                     <p id="phone">Phone: 1-800-WE-REACT</p>
                     <p id="email">email: info@reactactors.org</p>
                 </form>
